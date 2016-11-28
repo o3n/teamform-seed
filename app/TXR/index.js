@@ -650,7 +650,7 @@ app.controller("clickCtrl",
         alert(alert_content);
 
       };
-
+		
 
       $scope.sendMessage = function(message, type, selected_id){
         //for each user selected
@@ -708,9 +708,25 @@ app.controller("clickCtrl",
 
         alert(alert_content);
 
-      };
-
+      }
+	$scope.pUser = {};
+	$scope.passUser = function(user){
+		$scope.pUser.name = user.name;
+		$scope.pUser.img = user.img;
+		$scope.pUser.introduction = user.introduction;
+		$scope.pUser.personalWebsite = user.personalWebsite;
+		$scope.pUser.email = user.email;
+		$scope.pUser.skills = [];
+		for(var i = 0; i < user.skills.length; i++){
+			$scope.pUser.skills.push(user.skills[i]);
+		}
+		
+	}
+	
+		
     }
+	
+	
 );
 
 app.controller("profileController",function($scope,$firebaseArray,$firebaseObject,$cookies,$window){
